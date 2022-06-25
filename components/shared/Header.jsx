@@ -27,17 +27,17 @@ const menu = [
   {
     name: 'About',
     description: 'Speak directly to your customers in a more meaningful way.',
-    href: '/',
+    href: '/about',
     icon: CursorClickIcon,
   },
   { name: 'Stack', description: "Your customers' data will be safe and secure.",
-    href: '#',
+    href: '/stack',
     icon: ShieldCheckIcon
   },
   {
     name: 'Blog',
     description: "Connect with third-party tools that you're already using.",
-    href: '/',
+    href: '/blog',
     icon: ViewGridIcon,
   }
 ]
@@ -45,13 +45,13 @@ const menu = [
 const mobileMenu = [
   ...menu,
   { name: 'Resources', description: "Your customers' data will be safe and secure.",
-    href: '#',
+    href: '/resources',
     icon: ShieldCheckIcon
   },
   {
     name: 'Contact',
     description: "Connect with third-party tools that you're already using.",
-    href: '/',
+    href: '/contact',
     icon: ViewGridIcon,
   }
 ]

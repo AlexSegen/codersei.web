@@ -16,13 +16,13 @@ const About =  () => {
         <section className="container mx-auto">
 
             <div className="mb-10">
-                <h2 className="mb-5 text-3xl font-bold text-left">My favorite dev stacks</h2>
-                <p className="mb-5 text-gray-600">
+                <h3 className="mb-5 text-2xl font-semibold text-left dark:text-gray-200">My favorite frameworks</h3>
+                <p className="mb-5 text-gray-500 dark:text-gray-300">
                     I have huge experience working with <strong className="font-semibold ">Angular, React, VueJS and NodeJS</strong>.
                      And I love taking care of <strong className="font-semibold ">UI / UX design</strong>, look and feel, user interaction and responsive behaviour.
                 </p>
 
-                <p className="mb-4 text-gray-600">
+                <p className="mb-4 text-gray-500 dark:text-gray-300">
                     Some of my favorite design tools are Adobe Photoshop, Illustrator, Xperience Design and others.
                 </p>
             </div>
@@ -39,7 +39,7 @@ const About =  () => {
             <div className="p-4 mx-auto mt-10 text-center">
                 <div className="p-8 border border-gray-200 border-dashed rounded">
 
-                    <h3 className="mb-4 text-3xl font-bold ">Learning</h3>
+                    <h3 className="mb-4 text-3xl font-semibold dark:text-cyan-500">Learning</h3>
                     <p className="mb-4 text-gray-400">
                         These are some frameworks / libs I like to keep studying everyday.
                     </p>

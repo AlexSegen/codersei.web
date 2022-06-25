@@ -1,5 +1,4 @@
 import Head from 'next/head'
-import About from '../components/home/About'
 import Hero from '../components/home/Hero'
 import LastTemplate from '../components/home/LastTemplate'
 import RecentPosts from '../components/home/RecentPosts'
