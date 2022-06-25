@@ -115,7 +115,7 @@ export default function Header() {
             </Link>
             <button onClick={toggleDarkMode} className="inline-flex items-center justify-center px-4 py-2 ml-4 text-base font-medium text-gray-500 border border-transparent rounded-md shadow-sm hover:text-gray-700 whitespace-nowrap ">
               {
-                darkMode ?  <MoonIcon className="w-6 h-6 text-gray-200" /> :   <SunIcon className="w-6 h-6" />
+                darkMode ?  <MoonIcon className="w-6 h-6 text-cyan-400" /> :   <SunIcon className="w-6 h-6" />
               }
             </button>
           </div>
