@@ -1,4 +1,4 @@
-import { createContext, useState } from 'react';
+import { createContext, useState, useEffect } from 'react';
 
 export const ConfigContext = createContext();
 
@@ -16,7 +16,28 @@ const ConfigContextProvider = ({children}) => {
     const [darkMode, setDarkMode] = useState(false);
     const [config] = useState(initialState);
 
-    const toggleDarkMode = () => setDarkMode(!darkMode)
+    const toggleDarkMode = () =>  {
+        localStorage.theme = darkMode ? 'light' : 'dark';
+        handleToggle();
+    }
+
+    const handleToggle = () => {
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark')
+            document.body.classList.add('bg-slate-900')
+            setDarkMode(true);
+          } else {
+            document.documentElement.classList.remove('dark')
+            document.body.classList.remove('bg-slate-900')
+            setDarkMode(false);
+        }
+    }
+
+    useEffect(() => {
+        
+        handleToggle();	
+
+    }, [])
 
     return ( 
         <ConfigContext.Provider value={{

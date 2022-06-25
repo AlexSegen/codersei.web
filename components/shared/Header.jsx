@@ -62,16 +62,16 @@ function classNames(...classes) {
 
 export default function Header() {
 
-  const { darkMode, toggleDarkMode } = useConfig();
+  const { toggleDarkMode, darkMode } = useConfig();
 
   return (
-    <Popover className={`relative mx-auto max-w-7xl ${darkMode ? 'bg-slate-900' : 'bg-white'}`}>
+    <Popover className={`relative mx-auto max-w-7xl dark:bg-slate-900 bg-white`}>
       <div className="w-full px-4 sm:px-6">
         <div className="flex items-center justify-between py-6 md:justify-start md:space-x-10">
           <div className="flex justify-start lg:w-0 lg:flex-1">
             <Link href="/">
               <a>
-                <span className="sr-only">Workflow</span>
+                <span className="sr-only">Codersei</span>
                 <img
                   className="w-auto h-8 sm:h-10"
                   src={`images/codersei-logo-${darkMode ? 'light' : 'dark'}.svg`}
@@ -91,7 +91,7 @@ export default function Header() {
             {
               menu.map((item, index) => 
                 <Link href={item.href} key={item.name}>
-                  <a className={`text-base font-medium  ${darkMode ? 'text-gray-200 hover:text-gray-300 focus:text-gray-100':'text-gray-800 hover:text-gray-600 focus:text-gray-900'}`}>
+                  <a className={`text-base font-medium  dark:text-gray-200 dark:hover:text-gray-300 dark:focus:text-gray-100 text-gray-800 hover:text-gray-600 focus:text-gray-900`}>
                     {item.name}
                   </a>
                 </Link>
@@ -102,7 +102,7 @@ export default function Header() {
           
           <div className="items-center justify-end hidden md:flex md:flex-1 lg:w-0">
             <Link href="/">
-              <a className={`text-base font-medium  ${darkMode ? 'text-gray-200 hover:text-gray-300 focus:text-gray-100':'text-gray-800 hover:text-gray-600 focus:text-gray-900'}`}>
+              <a className={`text-base font-medium dark:text-gray-200 dark:hover:text-gray-300 dark:focus:text-gray-100 text-gray-800 hover:text-gray-600 focus:text-gray-900`}>
                 Resources
               </a>
             </Link>
@@ -132,7 +132,7 @@ export default function Header() {
         leaveTo="opacity-0 scale-95"
       >
         <Popover.Panel focus className="absolute inset-x-0 top-0 p-2 transition origin-top-right transform md:hidden">
-          <div className={` divide-y-2 rounded-lg shadow-lg ring-1 ring-opacity-5 ${darkMode ? 'divide-gray-50 ring-black bg-slate-900':'divide-gray-50 ring-black bg-white'}`}>
+          <div className={` divide-y-2 rounded-lg shadow-lg ring-1 ring-opacity-5 dark:divide-gray-50 dark:ring-black dark:bg-slate-900 divide-gray-50 ring-black bg-white`}>
             <div className="px-5 pt-5 pb-6">
               <div className="flex items-center justify-between">
                 <div>
@@ -157,7 +157,7 @@ export default function Header() {
                         className="flex items-center p-3 -m-3 rounded-md"
                       >
                         <item.icon className="flex-shrink-0 w-6 h-6 text-indigo-600" aria-hidden="true" />
-                        <span className={`ml-3 text-base font-medium ${darkMode ? 'text-gray-100':'text-gray-900'}`}>{item.name}</span>
+                        <span className={`ml-3 text-base font-medium dark:text-gray-100 text-gray-900`}>{item.name}</span>
                       </a>
                     </Link>
                   ))}
