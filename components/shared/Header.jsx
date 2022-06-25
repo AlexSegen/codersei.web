@@ -62,7 +62,7 @@ function classNames(...classes) {
 
 export default function Header() {
 
-  const { darkMode, toggleDarkMode } = useConfig()
+  const { darkMode, toggleDarkMode } = useConfig();
 
   return (
     <Popover className={`relative mx-auto max-w-7xl ${darkMode ? 'bg-slate-900' : 'bg-white'}`}>
