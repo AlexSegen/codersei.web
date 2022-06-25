@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import Link from 'next/link';
 
 
@@ -5,19 +6,16 @@ import Link from 'next/link';
 import { Fragment } from 'react'
 import { Popover, Transition } from '@headlessui/react'
 import {
-  BookmarkAltIcon,
-  CalendarIcon,
   ChartBarIcon,
   CursorClickIcon,
   MenuIcon,
-  PhoneIcon,
-  PlayIcon,
-  RefreshIcon,
   ShieldCheckIcon,
-  SupportIcon,
   ViewGridIcon,
   XIcon,
+  SunIcon,
+  MoonIcon
 } from '@heroicons/react/outline'
+import { useConfig } from '../../hooks/useConfig';
 
 const menu = [
   {
@@ -63,8 +61,11 @@ function classNames(...classes) {
 }
 
 export default function Header() {
+
+  const { darkMode, toggleDarkMode } = useConfig()
+
   return (
-    <Popover className="relative mx-auto bg-white max-w-7xl">
+    <Popover className={`relative mx-auto max-w-7xl ${darkMode ? 'bg-slate-900' : 'bg-white'}`}>
       <div className="w-full px-4 sm:px-6">
         <div className="flex items-center justify-between py-6 md:justify-start md:space-x-10">
           <div className="flex justify-start lg:w-0 lg:flex-1">
@@ -73,7 +74,7 @@ export default function Header() {
                 <span className="sr-only">Workflow</span>
                 <img
                   className="w-auto h-8 sm:h-10"
-                  src="/images/codersei-logo.svg"
+                  src={`images/codersei-logo-${darkMode ? 'light' : 'dark'}.svg`}
                   alt=""
                 />
               </a>
@@ -90,7 +91,7 @@ export default function Header() {
             {
               menu.map((item, index) => 
                 <Link href={item.href} key={item.name}>
-                  <a className="text-base font-medium text-gray-800 hover:text-gray-600 focus:text-gray-900">
+                  <a className={`text-base font-medium  ${darkMode ? 'text-gray-200 hover:text-gray-300 focus:text-gray-100':'text-gray-800 hover:text-gray-600 focus:text-gray-900'}`}>
                     {item.name}
                   </a>
                 </Link>
@@ -101,7 +102,7 @@ export default function Header() {
           
           <div className="items-center justify-end hidden md:flex md:flex-1 lg:w-0">
             <Link href="/">
-              <a className="text-base font-medium text-gray-800 whitespace-nowrap hover:text-gray-600 focus:text-gray-900">
+              <a className={`text-base font-medium  ${darkMode ? 'text-gray-200 hover:text-gray-300 focus:text-gray-100':'text-gray-800 hover:text-gray-600 focus:text-gray-900'}`}>
                 Resources
               </a>
             </Link>
@@ -112,10 +113,10 @@ export default function Header() {
                 Contact
               </a>
             </Link>
-            <button className="inline-flex items-center justify-center px-4 py-2 ml-4 text-base font-medium text-gray-500 border border-transparent rounded-md shadow-sm hover:text-gray-700 whitespace-nowrap ">
-              <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
-              </svg>
+            <button onClick={toggleDarkMode} className="inline-flex items-center justify-center px-4 py-2 ml-4 text-base font-medium text-gray-500 border border-transparent rounded-md shadow-sm hover:text-gray-700 whitespace-nowrap ">
+              {
+                darkMode ?  <MoonIcon className="w-6 h-6 text-gray-200" /> :   <SunIcon className="w-6 h-6" />
+              }
             </button>
           </div>
         </div>
@@ -131,7 +132,7 @@ export default function Header() {
         leaveTo="opacity-0 scale-95"
       >
         <Popover.Panel focus className="absolute inset-x-0 top-0 p-2 transition origin-top-right transform md:hidden">
-          <div className="bg-white divide-y-2 rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 divide-gray-50">
+          <div className={` divide-y-2 rounded-lg shadow-lg ring-1 ring-opacity-5 ${darkMode ? 'divide-gray-50 ring-black bg-slate-900':'divide-gray-50 ring-black bg-white'}`}>
             <div className="px-5 pt-5 pb-6">
               <div className="flex items-center justify-between">
                 <div>
@@ -153,10 +154,10 @@ export default function Header() {
                   {mobileMenu.map((item) => (
                      <Link href={item.href}  key={item.name}>
                       <a
-                        className="flex items-center p-3 -m-3 rounded-md hover:bg-gray-50"
+                        className="flex items-center p-3 -m-3 rounded-md"
                       >
                         <item.icon className="flex-shrink-0 w-6 h-6 text-indigo-600" aria-hidden="true" />
-                        <span className="ml-3 text-base font-medium text-gray-900">{item.name}</span>
+                        <span className={`ml-3 text-base font-medium ${darkMode ? 'text-gray-100':'text-gray-900'}`}>{item.name}</span>
                       </a>
                     </Link>
                   ))}
