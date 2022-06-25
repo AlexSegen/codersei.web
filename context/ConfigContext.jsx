@@ -24,11 +24,11 @@ const ConfigContextProvider = ({children}) => {
     const handleToggle = () => {
         if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
             document.documentElement.classList.add('dark')
-            document.body.classList.add('bg-slate-900')
+            document.body.classList.add('dark:bg-slate-900')
             setDarkMode(true);
           } else {
             document.documentElement.classList.remove('dark')
-            document.body.classList.remove('bg-slate-900')
+            document.body.classList.remove('dark:bg-slate-900')
             setDarkMode(false);
         }
     }

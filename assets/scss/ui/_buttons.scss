@@ -7,12 +7,11 @@
         }
 
         &.is-default {
-            @apply bg-white hover:bg-gray-100 text-black font-bold rounded shadow-lg shadow-gray-100/50 border border-gray-200;
+            @apply bg-white hover:bg-gray-100 text-black font-bold rounded shadow-lg shadow-gray-100/10 border border-gray-200;
         }
 
         &.is-dark {
             @apply bg-gray-800 hover:bg-gray-900 text-white font-bold rounded shadow-lg shadow-gray-500/50;
         }
-    
     }
 }

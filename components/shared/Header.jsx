@@ -65,7 +65,7 @@ export default function Header() {
   const { toggleDarkMode, darkMode } = useConfig();
 
   return (
-    <Popover className={`relative mx-auto max-w-7xl dark:bg-slate-900 bg-white`}>
+    <Popover className={`relative mx-auto max-w-7xl dark:bg-slate-900 bg-white dark:border-b dark:border-slate-800`}>
       <div className="w-full px-4 sm:px-6">
         <div className="flex items-center justify-between py-6 md:justify-start md:space-x-10">
           <div className="flex justify-start lg:w-0 lg:flex-1">

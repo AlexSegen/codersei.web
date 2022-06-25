@@ -1,16 +1,12 @@
 /* eslint-disable @next/next/no-img-element */
 /* eslint-disable react/no-unescaped-entities */
-
-import { useConfig } from '../../hooks/useConfig';
-
 import Link from "next/link"
 
 const Hero = () => {
 
-    const { darkMode } = useConfig();
 
     return (
-        <section className={`container mx-auto max-w-7xl ${darkMode ? 'bg-slate-900 text-gray-300':''}`}>
+        <section className={`container mx-auto max-w-7xl dark:bg-slate-900 dark:text-gray-300`}>
             <div className="items-center justify-center block py-20 lg:flex">
                 <div className="px-10">
                     <div>
@@ -23,7 +19,7 @@ const Hero = () => {
                         <a target="_blank"
                             rel="noreferrer" 
                             href="https://carsales.com.au/" 
-                            className={`font-semibold hover:underline ${darkMode ? 'text-cyan-500 ':'text-gray-900 '}`} >
+                            className={`font-semibold hover:underline text-gray-900  dark:text-cyan-500`} >
                             Carsales.com Limited
                         </a>
                     </p>
