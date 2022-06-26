@@ -1,6 +1,5 @@
 /* eslint-disable react/no-unescaped-entities */
 import Head from 'next/head'
-import Hero from '../components/home/Hero'
 import AboutStack from '../components/home/About'
 
 export default function About() {
