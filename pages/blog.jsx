@@ -1,9 +1,8 @@
 import Head from 'next/head'
+import { getAllPosts } from "@/src/api";
 import PostList from '../components/blog/PostList'
-import RecentPosts from '../components/home/RecentPosts'
-import { posts } from "../__mockups__/posts";
 
-export default function Home() {
+export default function Blog({posts}) {
   return (
     <div>
       <Head>
@@ -19,4 +18,13 @@ export default function Home() {
       
     </div>
   )
+}
+
+
+export async function getStaticProps() {
+  const posts = getAllPosts()
+    .slice(0, 9)
+    .map((post) => post.meta);
+
+  return { props: { posts } };
 }

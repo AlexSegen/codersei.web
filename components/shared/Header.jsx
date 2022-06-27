@@ -74,7 +74,7 @@ export default function Header() {
                 <span className="sr-only">Codersei</span>
                 <img
                   className="w-auto h-8 sm:h-10"
-                  src={`images/codersei-logo-${darkMode ? 'light' : 'dark'}.svg`}
+                  src={`/images/codersei-logo-${darkMode ? 'light' : 'dark'}.svg`}
                   alt=""
                 />
               </a>

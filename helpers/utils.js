@@ -1,3 +1,5 @@
+import moment from 'moment';
+
 export const timeAgo = (date_str) => {
   date_str = date_str.replace("+0000", "Z");
   let time_formats = [
@@ -43,8 +45,11 @@ export const timeAgo = (date_str) => {
   return time;
 };
 
+export const formatDate = date => moment(date).format("d MMMM, yyy")
+
 export const formatters = {
   timeAgo,
+  formatDate
 };
 
 const utils = {
