@@ -24,7 +24,7 @@ const Hero = () => {
                         </a>
                     </p>
                 
-                    <p className="mb-5 text-gray-400">Let's talk about HTML |  React | Vue | Node | Web design | UI/UX design | beign productive and much more.</p>
+                    <p className="mb-5 text-gray-400">Let's talk about HTML |  React | Vue | Node | Web design | UI/UX design | being productive and much more.</p>
 
                     <Link href="/about">
                         <a className="font-semibold hover:underline">More about me? 
