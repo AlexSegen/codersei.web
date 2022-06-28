@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import Link from 'next/link';
 import { MDXRemote } from "next-mdx-remote";
 import { serialize } from "next-mdx-remote/serialize";
 import rehypeSlug from "rehype-slug";
@@ -9,7 +10,6 @@ import "highlight.js/styles/atom-one-dark.css";
 import { MDXComponents } from "../../components/blog/MDXComponents";
 import { getPostFromSlug, getSlugs } from "@/src/api";
 import PostMetadata from '../../components/blog/PostMetadata';
-import Link from 'next/link';
 
 export default function Post({post}) {
 

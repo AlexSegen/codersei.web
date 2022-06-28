@@ -4,7 +4,7 @@ import { sync } from "glob";
 import matter from "gray-matter";
 import readingTime from "reading-time";
 
-const POSTS_PATH = path.join(process.cwd(), "posts");
+const POSTS_PATH = path.join(process.cwd(), "data", "posts");
 
 export const getSlugs = () => {
   const paths = sync(`${POSTS_PATH}/*.mdx`);
@@ -26,6 +26,7 @@ export const getAllPosts = () => {
       return 0;
     })
     .reverse();
+
   return posts;
 };
 

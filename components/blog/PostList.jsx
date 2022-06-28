@@ -29,7 +29,7 @@ export const PostList = ({ posts }) => {
         <div>
             <div>
                 {
-                    posts && posts.length && posts.map(post => <PostItem key={post.slug} {...post} />)
+                    posts && posts.length > 0 && posts.map(post => <PostItem key={post.slug} {...post} />)
                 }
             </div>
         </div>

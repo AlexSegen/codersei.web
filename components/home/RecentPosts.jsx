@@ -1,16 +1,14 @@
 import PostList from "../blog/PostList";
-import { posts } from "../../__mockups__/posts";
 import Link from "next/link";
 
 const RecentPosts = () => {
 
-    const recentPosts = [...posts.slice(0, 2)];
     return ( 
         <section className="my-5">
             <div>
                 <h2 className="mb-5 text-3xl font-bold text-left dark:text-cyan-500">Recent Posts</h2>
 
-                <PostList posts={recentPosts}/>
+                <PostList posts={[]}/>
 
                 <div className="text-center">
                     <Link href="/blog">
