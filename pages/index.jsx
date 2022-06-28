@@ -1,9 +1,12 @@
 import Head from 'next/head'
+
+import { getAllPosts } from "@/src/api";
+
 import Hero from '../components/home/Hero'
 import LastTemplate from '../components/home/LastTemplate'
 import RecentPosts from '../components/home/RecentPosts'
 
-export default function Home() {
+export default function Home({posts}) {
   return (
     <div>
       <Head>
@@ -16,7 +19,7 @@ export default function Home() {
 
       <div className='container max-w-5xl mx-auto'>
 
-        <RecentPosts />
+        <RecentPosts posts={posts} />
 
         <span className='block my-16'></span>
         
@@ -25,4 +28,13 @@ export default function Home() {
       
     </div>
   )
+}
+
+
+export async function getStaticProps() {
+  let posts = await getAllPosts();
+
+  posts = [...posts].map((post) => post.meta);
+
+  return { props: { posts } };
 }
