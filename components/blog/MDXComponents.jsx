@@ -1,16 +1,12 @@
 import Image from "next/image";
-import Link from "next/link";
 
 import YouTube from './Youtube';
+import { CustomLink } from "./CustomLink";
 
 export const MDXComponents = {
     p: (props) => <p className="mb-6" {...props} />,
     ul: (props) => <ul className="pl-4 mb-6 list-disc list-inside" {...props} />,
-    a: (props) => { 
-        const { href, children } = props;
-        const isInternalLink = href && (href.startsWith("/") || href.startsWith("#"));
-        return <Link href={href}><a target={isInternalLink ? '_self':'_blank'} className="underline text-cyan-500">{children}</a></Link>
-    },
+    a: (props) => <CustomLink {...props}/>,
     h2: (props) => <h2 className="mb-6 text-2xl font-bold dark:text-cyan-500" {...props} />,
     pre: (props) => <pre className="mb-8" {...props} />,
     /* h1: (props) => <Heading as="h1" m={8} size="3xl" {...props} />,
