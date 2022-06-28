@@ -63,7 +63,9 @@ export const getStaticProps = async ({ params }) => {
   };
   
   export const getStaticPaths = async () => {
-    const paths = getSlugs().map((slug) => ({ params: { slug } }));
+    let paths = await getSlugs();
+
+    paths = paths.map((slug) => ({ params: { slug } }));
   
     return {
       paths,

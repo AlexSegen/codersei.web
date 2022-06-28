@@ -22,9 +22,9 @@ export default function Blog({posts}) {
 
 
 export async function getStaticProps() {
-  const posts = getAllPosts()
-    .slice(0, 9)
-    .map((post) => post.meta);
+  let posts = await getAllPosts();
+
+  posts = [...posts].map((post) => post.meta);
 
   return { props: { posts } };
 }
