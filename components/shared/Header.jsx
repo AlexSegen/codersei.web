@@ -30,8 +30,8 @@ const menu = [
     href: '/about',
     icon: CursorClickIcon,
   },
-  { name: 'Stack', description: "Your customers' data will be safe and secure.",
-    href: '/stack',
+  { name: 'Notion Templates', description: "Your customers' data will be safe and secure.",
+    href: '/notion/templates',
     icon: ShieldCheckIcon
   },
   {
