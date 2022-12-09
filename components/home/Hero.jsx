@@ -18,9 +18,9 @@ const Hero = () => {
                     <p className="mb-5"> <span className="text-gray-400">Software Engineer at </span>  
                         <a target="_blank"
                             rel="noreferrer" 
-                            href="https://carsales.com.au/" 
+                            href="https://mercadolibre.cl/" 
                             className={`font-semibold hover:underline text-gray-900  dark:text-cyan-500`} >
-                            Carsales.com Limited
+                            Mercadolibre Chile
                         </a>
                     </p>
                 

@@ -1,0 +1,74 @@
+---
+title: Create a React Custom Hook in simple steps
+category: Web Development
+tags:
+  - React
+  - Javascript
+  - Hooks
+date: 2022-12-09
+excerpt: React custom hook is a piece of reusable logic that can be abstracted from a React component and used in other components...
+---
+
+A **React custom hook** is a JavaScript function that starts with the word use and contains one or more of the **React hooks**, such as **useState** or **useEffect**. Custom hooks are a way to extract and reuse stateful logic from a component, so that the logic can be tested independently and shared among different components.
+
+
+Here is an example of a custom hook that uses the useState and useEffect **hooks** to fetch data from an API and store the result in state:
+
+
+```js
+import { useState, useEffect } from 'react';
+
+function useFetch(url) {
+  const [data, setData] = useState(null);
+  const [error, setError] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
+
+  useEffect(() => {
+    async function fetchData() {
+      setIsLoading(true);
+      try {
+        const response = await fetch(url);
+        const json = await response.json();
+        setData(json);
+      } catch (error) {
+        setError(error);
+      } finally {
+        setIsLoading(false);
+      }
+    }
+    fetchData();
+  }, [url]);
+
+  return { data, error, isLoading };
+}
+```
+
+
+In this example, the useFetch custom hook uses the useState hook to manage the data, error, and isLoading state variables. It also uses the useEffect hook to make an API request when the url parameter changes. The hook returns an object containing the data, error, and isLoading state variables, which can be used inside a component to handle the response data, display error messages, or show a loading indicator.
+
+To use this custom hook inside a component, you would call it like this:
+
+
+```js
+function MyComponent() {
+  const { data, error, isLoading } = useFetch('https://my-api.com/data');
+
+  if (error) {
+    return <p>An error occurred: {error.message}</p>;
+  }
+
+  if (isLoading) {
+    return <p>Loading...</p>;
+  }
+
+  return (
+    <ul>
+      {data.map(item => (
+        <li key={item.id}>{item.name}</li>
+      ))}
+    </ul>
+  );
+}
+```
+
+In this example, the useFetch custom hook is called inside the MyComponent component. It makes a fetch request to the specified URL and sets the data, error, and isLoading state variables accordingly. These state variables can then be used inside the component to handle the response data, display error messages, or show a loading indicator.
